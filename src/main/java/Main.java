@@ -1,4 +1,4 @@
-import entity.utility.utility.EntityManagerProvider;
+import utility.EntityManagerProvider;
 
 import javax.persistence.EntityManager;
 import java.io.File;

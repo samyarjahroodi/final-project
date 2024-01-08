@@ -1,4 +1,4 @@
-package entity.utility.utility;
+package utility;
 
 import lombok.Getter;
 
