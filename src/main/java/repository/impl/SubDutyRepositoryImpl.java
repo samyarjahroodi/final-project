@@ -2,6 +2,7 @@ package repository.impl;
 
 import base.reposiotry.Impl.BaseEntityRepositoryImpl;
 import entity.duty.SubDuty;
+import entity.user.Expert;
 import repository.SubDutyRepository;
 
 import javax.persistence.EntityManager;
@@ -18,4 +19,5 @@ public class SubDutyRepositoryImpl
     protected Class<SubDuty> getEntityClass() {
         return SubDuty.class;
     }
+
 }

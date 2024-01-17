@@ -4,6 +4,8 @@ import base.entity.BaseEntity;
 import lombok.*;
 
 import javax.persistence.Column;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.MappedSuperclass;
 
 //@AllArgsConstructor
@@ -11,6 +13,7 @@ import javax.persistence.MappedSuperclass;
 @Getter
 @Setter
 @MappedSuperclass
+
 //@Builder
 @SuppressWarnings("unused")
 public class Person extends BaseEntity<Integer> {
@@ -28,5 +31,6 @@ public class Person extends BaseEntity<Integer> {
 
     @Column(nullable = false, unique = true)
     private String username;
+
 
 }

@@ -4,10 +4,7 @@ import base.entity.BaseEntity;
 import entity.user.Expert;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Builder
@@ -32,8 +29,9 @@ public class Suggestion extends BaseEntity<Integer> {
     @ManyToOne
     private CustomerOrder order;
 
+    private Boolean isApproved;
+
     @ManyToOne
     private Expert expert;
-
 
 }

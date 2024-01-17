@@ -2,6 +2,7 @@ package entity.operation;
 
 import base.entity.BaseEntity;
 import entity.duty.Duty;
+import entity.duty.SubDuty;
 import entity.user.Customer;
 import lombok.*;
 
@@ -27,6 +28,7 @@ public class CustomerOrder extends BaseEntity<Integer> {
 
     private String address;
 
+    @Enumerated(EnumType.STRING)
     private Status status;
 
     //this star is for expert,we get the average of all the projects and then set it to the expert!!
@@ -36,10 +38,14 @@ public class CustomerOrder extends BaseEntity<Integer> {
     @ManyToOne
     private Duty duty;
 
+    @ManyToOne
+    private SubDuty subDuty;
 
     @ManyToOne
     private Customer customer;
 
     @OneToMany(mappedBy = "order")
     private List<Suggestion> suggestions;
+
+
 }

@@ -1,14 +1,11 @@
 package entity.duty;
 
 import base.entity.BaseEntity;
-import entity.user.Customer;
+import entity.operation.CustomerOrder;
 import entity.user.Expert;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.List;
 
 @Builder
@@ -17,6 +14,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+//@ToString
 public class SubDuty extends BaseEntity<Integer> {
 
     private String name;
@@ -26,9 +24,26 @@ public class SubDuty extends BaseEntity<Integer> {
     private Integer price;
 
     @ManyToOne
+    @JoinColumn(nullable = false)
     private Duty duty;
+
 
     @ManyToMany
     @JoinTable(name = "SubDuty_expert")
     private List<Expert> experts;
+
+    @OneToMany(mappedBy = "duty")
+    private List<CustomerOrder> orders;
+
+    @Override
+    public String toString() {
+        return "SubDuty{" +
+                "id='" + getId() + '\'' +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", experts=" + experts +
+                '}';
+    }
+
 }

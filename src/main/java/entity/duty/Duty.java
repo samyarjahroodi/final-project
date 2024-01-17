@@ -14,13 +14,23 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+
 public class Duty extends BaseEntity<Integer> {
     private String name;
 
     @OneToMany(mappedBy = "duty")
-    private List<SubDuty> duties;
+    private List<SubDuty> subDuties;
 
     @OneToMany(mappedBy = "duty")
     private List<CustomerOrder> orders;
 
+    @Override
+    public String toString() {
+        return "Duty{" +
+                "id='" + getId() + '\'' +
+                "name='" + name + '\'' +
+                ", duties=" + subDuties +
+                ", orders=" + orders +
+                '}';
+    }
 }

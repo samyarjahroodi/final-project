@@ -1,9 +1,6 @@
 package base.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,4 +17,11 @@ public class BaseEntity<ID extends Serializable> {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private ID id;
+
+    @Override
+    public String toString() {
+        return "BaseEntity{" +
+                "id=" + id +
+                '}';
+    }
 }

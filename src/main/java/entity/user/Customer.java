@@ -20,4 +20,6 @@ public class Customer extends Person {
 
     @OneToOne
     private Wallet wallet;
+
+
 }
