@@ -14,16 +14,16 @@ public class Main {
         //ClientMethod.createClient();
 
         //change password
-        // ClientMethod.changePassword("12345Abchfffds");
+        //ClientMethod.changePassword("samyar", "12345Abchfffds", "1234Abcd");
 
 
         //create random duty and sub duty
-         AdminMethod.createDuty("decoration of house");
-        AdminMethod.createSubDuty("painting the walls","painting all walls of your home");
+       /* AdminMethod.createDuty("decoration of house");
+        AdminMethod.createSubDuty("painting the walls", "painting all walls of your home");*/
 
 
         //create random expert
-      //  ExpertMethod.createExpert();
+       // ExpertMethod.createExpert();
 
 
         //show duty and sub duty
@@ -35,10 +35,12 @@ public class Main {
 //         AdminMethod.deleteDuty();
 
         //update duty and sub duty
-        AdminMethod.updateDetailsForSubDuty();
+        //AdminMethod.updateDetailsForSubDuty();
 
         //ExpertMethod.checkStar();
 
         //ExpertMethod.getImage();
+
+        AdminMethod.changeTheStatusOfExpert(14);
     }
 }

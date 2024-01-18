@@ -36,10 +36,6 @@ public class AdminMethod extends SameMethods {
     }
 
 
-//    public static void addSubDutyToTheExistDuty() {
-//
-//    }
-
     public static void deleteSubDutyFromTheExistDuty() {
         showSubDuties();
         System.out.println("id : ");
@@ -110,6 +106,11 @@ public class AdminMethod extends SameMethods {
         }
     }
 
+    public static void changeTheStatusOfExpert(Integer id) {
+        expertService.changeRegistrationStatus(id);
+        addSubDutyToNewExpert(id);
+
+    }
 
 
     public static void createSubDuty(String nameOfSubDuty, String description) {
@@ -139,6 +140,26 @@ public class AdminMethod extends SameMethods {
             }
         } catch (
                 InputMismatchException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void addSubDutyToNewExpert(Integer id) {
+        try {
+            System.out.println("which subDuty:");
+            AdminMethod.showSubDuties();
+            int i = scanner.nextInt();
+            Optional<SubDuty> subDutyById = subDutyService.findById(i);
+            if (subDutyById.isPresent()) {
+                SubDuty subDuty = subDutyById.get();
+                Optional<Expert> expertById = expertService.findById(id);
+                Expert expert = expertById.get();
+                subDuty.setExperts(Collections.singletonList(expert));
+                expertService.saveOrUpdate(expert);
+            } else {
+                throw new NullPointerException("not found!!!");
+            }
+        } catch (InputMismatchException e) {
             e.printStackTrace();
         }
     }

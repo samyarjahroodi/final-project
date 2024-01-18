@@ -13,4 +13,9 @@ public class CustomerServiceImpl
     public CustomerServiceImpl(CustomerRepository repository) {
         super(repository);
     }
+
+    @Override
+    public Customer getId(String username, String password) {
+        return repository.getId(username,password);
+    }
 }

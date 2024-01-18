@@ -69,20 +69,20 @@ public class ExpertMethod extends SameMethods {
         expert.setWhenExpertRegistered(LocalDate.now());
         expert.setImage(setImageForExpert());
         SecurityContext.fillContext(expert);
-        addSubDutyToNewExpert();
+//        addSubDutyToNewExpert();
         expert.setStar(0.0);
         expertService.saveOrUpdate(expert);
        // expert.setStar(expertService.averageStarOfExpert(expert));
        // expertService.saveOrUpdate(expert);
     }
 
-    private static void addSubDutyToNewExpert() {
-        System.out.println("which subDuty:");
-        AdminMethod.showSubDuties();
-        int i = scanner.nextInt();
-        Optional<SubDuty> subDutyById = subDutyService.findById(i);
-        SubDuty subDuty = subDutyById.get();
-        Expert currentExpert = SecurityContext.getCurrentExpert();
-        subDuty.setExperts(Collections.singletonList(currentExpert));
-    }
+//    private static void addSubDutyToNewExpert() {
+//        System.out.println("which subDuty:");
+//        AdminMethod.showSubDuties();
+//        int i = scanner.nextInt();
+//        Optional<SubDuty> subDutyById = subDutyService.findById(i);
+//        SubDuty subDuty = subDutyById.get();
+//        Expert currentExpert = SecurityContext.getCurrentExpert();
+//        subDuty.setExperts(Collections.singletonList(currentExpert));
+//    }
 }

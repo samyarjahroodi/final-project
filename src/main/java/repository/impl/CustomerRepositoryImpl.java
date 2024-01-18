@@ -5,6 +5,7 @@ import entity.user.Customer;
 import repository.CustomerRepository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 
 public class CustomerRepositoryImpl
         extends BaseEntityRepositoryImpl<Customer, Integer>
@@ -18,5 +19,20 @@ public class CustomerRepositoryImpl
     @Override
     protected Class<Customer> getEntityClass() {
         return Customer.class;
+    }
+
+    @Override
+    public Customer getId(String username, String password) {
+        try {
+            Customer customer = entityManager.createQuery("SELECT c FROM Customer c" +
+                            " WHERE username = :username AND password = :password",Customer.class)
+                    .setParameter("username", username)
+                    .setParameter("password", password)
+                    .getSingleResult();
+            return (Customer) customer;
+        } catch (NoResultException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }
