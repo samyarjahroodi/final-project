@@ -1,7 +1,6 @@
 package entity.operation;
 
 import base.entity.BaseEntity;
-import entity.user.Customer;
 import lombok.*;
 
 import javax.persistence.Entity;

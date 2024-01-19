@@ -2,6 +2,7 @@ package methods.expertMethods;
 
 import entity.duty.SubDuty;
 import entity.user.Expert;
+import entity.user.Role;
 import entity.utility.Wallet;
 import methods.SameMethods;
 import methods.adminMethods.AdminMethod;
@@ -33,16 +34,13 @@ public class ExpertMethod extends SameMethods {
         System.out.println(expertService.averageStarOfExpert(expert));
     }
 
-    public static void getImage(){
-        Optional<Expert> byId = expertService.findById(21);
+    public static void getImage(Integer id){
+        Optional<Expert> byId = expertService.findById(id);
          expert = byId.get();
-        // Assuming you have retrieved the expert entity from the database
         if (expert != null && expert.getImage() != null) {
-            // Provide a file path where you want to save the image
             String filePath = "F:\\finalProject\\src\\main\\resources\\image.jpg";
 
             try (FileOutputStream fos = new FileOutputStream(filePath)) {
-                // Write the byte array to the file
                 fos.write(expert.getImage());
                 System.out.println("Photo saved to: " + filePath);
             } catch (IOException e) {
@@ -67,6 +65,7 @@ public class ExpertMethod extends SameMethods {
         expert.setWallet(wallet);
         expert.setRegistrationStatus(AWAITING_CONFIRMATION);
         expert.setWhenExpertRegistered(LocalDate.now());
+        expert.setRole(Role.EXPERT);
         expert.setImage(setImageForExpert());
         SecurityContext.fillContext(expert);
 //        addSubDutyToNewExpert();

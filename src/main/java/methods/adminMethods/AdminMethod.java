@@ -87,7 +87,7 @@ public class AdminMethod extends SameMethods {
     }
 
     //update the description and price of the sub duty!!
-    public static void updateDetailsForSubDuty() {
+    public static void updateDetailsForSubDuty(String description, int price) {
         try {
             showSubDuties();
             System.out.println("which sub duty do you want to update");
@@ -95,8 +95,8 @@ public class AdminMethod extends SameMethods {
             Optional<SubDuty> subDuty = subDutyService.findById(i);
             if (subDuty.isPresent()) {
                 SubDuty subDuty1 = subDuty.get();
-                subDuty1.setPrice(2000);
-                subDuty1.setDescription("maintaining your apartment");
+                subDuty1.setPrice(price);
+                subDuty1.setDescription(description);
                 subDutyService.saveOrUpdate(subDuty1);
             } else {
                 System.out.println("not found!!!");

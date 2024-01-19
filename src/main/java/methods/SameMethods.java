@@ -17,7 +17,7 @@ import java.util.List;
 
 import static entity.user.RegistrationStatus.AWAITING_CONFIRMATION;
 
-abstract public class SameMethods {
+ public class SameMethods {
     static DutyServiceImpl dutyService = ApplicationContext.getDutyService();
     static SubDutyServiceImpl subDutyService = ApplicationContext.getSubDutyService();
 

@@ -2,11 +2,11 @@ package utility;
 
 import entity.duty.Duty;
 import entity.duty.SubDuty;
+import entity.operation.CustomerOrder;
 import entity.user.Expert;
 import entity.user.Person;
 import lombok.Getter;
 
-import java.time.LocalDate;
 
 @SuppressWarnings("unused")
 public class SecurityContext {
@@ -38,15 +38,11 @@ public class SecurityContext {
         currentSubDuty = subDuty;
     }
 
-    public static Integer getCurrentUserId() {
-        return currentUser.getId();
-    }
-
     @Getter
-    private static LocalDate todayDate;
+    private static CustomerOrder currentCustomerOrder;
 
-    public static void fillContext(LocalDate today) {
-        todayDate = today;
+    public static void fillContext(CustomerOrder customerOrder) {
+        currentCustomerOrder = customerOrder;
     }
 
 }

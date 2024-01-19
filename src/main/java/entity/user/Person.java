@@ -32,5 +32,6 @@ public class Person extends BaseEntity<Integer> {
     @Column(nullable = false, unique = true)
     private String username;
 
-
+    @Enumerated(EnumType.STRING)
+    private Role role;
 }

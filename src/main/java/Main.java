@@ -1,5 +1,6 @@
+import entity.operation.CustomerOrder;
 import methods.adminMethods.AdminMethod;
-import methods.clilentMethods.ClientMethod;
+import methods.customerMethods.CustomerMethod;
 import methods.expertMethods.ExpertMethod;
 import utility.EntityManagerProvider;
 
@@ -11,23 +12,23 @@ public class Main {
         EntityManager entityManager = EntityManagerProvider.getEntityManager();
 
         //create random customer
-        //ClientMethod.createClient();
+        //CustomerMethod.createCustomer();
 
         //change password
-        //ClientMethod.changePassword("samyar", "12345Abchfffds", "1234Abcd");
+        //CustomerMethod.changePassword("samyar", "1234Abcd", "12345Abchfffds");
 
 
         //create random duty and sub duty
-       /* AdminMethod.createDuty("decoration of house");
-        AdminMethod.createSubDuty("painting the walls", "painting all walls of your home");*/
+        //AdminMethod.createDuty("decoration of house");
+        //AdminMethod.createSubDuty("painting the walls", "painting all walls of your home");
 
 
         //create random expert
-       // ExpertMethod.createExpert();
+        // ExpertMethod.createExpert();
 
 
         //show duty and sub duty
-        //      AdminMethod.showDuties();
+//        AdminMethod.showDuties();
 //        AdminMethod.showSubDuties();
 
         //delete sub duty from duty
@@ -35,12 +36,14 @@ public class Main {
 //         AdminMethod.deleteDuty();
 
         //update duty and sub duty
-        //AdminMethod.updateDetailsForSubDuty();
+        // AdminMethod.updateDetailsForSubDuty("maintaining your apartment",2000);
 
         //ExpertMethod.checkStar();
 
-        //ExpertMethod.getImage();
+        // ExpertMethod.getImage(8);
 
-        AdminMethod.changeTheStatusOfExpert(14);
+        //AdminMethod.changeTheStatusOfExpert(8);
+
+        CustomerMethod.publishOrder(2);
     }
 }

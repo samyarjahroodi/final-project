@@ -31,9 +31,8 @@ public class CustomerOrder extends BaseEntity<Integer> {
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    //this star is for expert,we get the average of all the projects and then set it to the expert!!
     @Column(name = "start_of_the_project")
-    private int starOfTheProject;
+    private LocalDate starOfTheProject;
 
     @ManyToOne
     private Duty duty;
